@@ -1,3 +1,15 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post-content {
+  font-size: 16px;
+  margin: 20px 0;
+  padding: 10px 0;
+}
+
+.post-user {
+  font-size: 10px;
+  color: #9eafba;
+  margin: 10px;
+}

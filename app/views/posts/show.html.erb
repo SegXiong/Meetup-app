@@ -1,3 +1,19 @@
 <h2><%= @post.title %></h2>
 
-<p><%= simple_format(@post.content) %></p>
+<div class="post-user">
+<p>by <b><%= @post.user.name %></b> last update at <%= @post.updated_at %></p>
+</div>
+
+<div class="post-content">
+  <p><%= simple_format(@post.content) %></p>
+</div>
+<hr />
+
+<div class="post_comment">
+  <h3><%= @post.comments.count %> Comments</h3>
+  <%= render @post.comments %>
+  <hr />
+
+  <h4>Add a comment</h4>
+  <%= render "comments/form" %>
+</div>

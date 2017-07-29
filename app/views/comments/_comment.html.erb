@@ -1,0 +1,6 @@
+<div class="comment-body">
+    <p class="comm-index pull-right">#<%= comment.id %></p>
+    <p class="comm-name"><strong><%= comment.user.name %></strong></p>
+    <p class="comm-body"><%= comment.content %></p>
+    <p class="comm-time"><%= time_ago_in_words(comment.created_at) %> Ago | <%= link_to "Delete", [comment.post, comment], :method => :delete, :data => { :confirm => "Are you sure?"} %></p>
+</div>

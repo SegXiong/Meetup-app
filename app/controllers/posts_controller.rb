@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :show]
   def index
-    @posts = Post.all
+    @posts = Post.all.order("created_at DESC")
   end
 
   def show
@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
-      flash[:notice] = "Create successed "
+      flash[:notice] = "Create successed"
       redirect_to posts_path(@post)
     else
       flash[:alert] = "Create failed"
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.update(post_params)
     if @post.save
-      flash[:notice] = "Edit successed "
+      flash[:notice] = "Edit successed"
       redirect_to posts_path(@post)
     else
       flash[:alert] = "Edit failed"

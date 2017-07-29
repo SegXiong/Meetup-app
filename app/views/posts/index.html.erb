@@ -1,0 +1,23 @@
+<h1>Meetups</h1>
+
+<div class="pull-right", style="margin-bottom: 20px;">
+  <%= link_to("New Meetup", new_post_path, :class => "btn btn-primary") %>
+</div>
+
+<table class="table table-striped">
+  <th>#</th>
+  <th>Title</th>
+  <th>Intro</th>
+  <th>Options</th>
+  <% @posts.each_with_index do |post, index| %>
+    <tr>
+      <td><%= index + 1 %></td>
+      <td><%= link_to post.title, post_path(post) %></td>
+      <td><%= truncate(post.content, length: 20, separator: ' ') { link_to "More", post_path(post)}%></td>
+      <td>
+        <%= link_to "Edit", edit_post_path(post), :class => "btn btn-default btn-sm" %> |
+        <%= link_to "Delete", post_path(post), :method => :delete, :class => "btn btn-danger btn-sm", :data => { :confirm => "Are you sure?"} %>
+      </td>
+    </tr>
+  <% end %>
+</table>

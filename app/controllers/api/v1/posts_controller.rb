@@ -6,7 +6,9 @@ class Api::V1::PostsController < ApiController
       :data => @posts.map{ |post|
         {
           :title => post.title,
-          :intro => post.content
+          :intro => post.content,
+          :author => post.user_id,
+          :created_at => post.created_at
         }
       }
     }
